@@ -1,5 +1,5 @@
-import { async } from "@firebase/util";
 import { Fragment } from "react";
+import SignUpForm from "../../component/sign-up-form/sign-up-form-component";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -10,6 +10,7 @@ const SignIn = () => {
     const { user } = await signInWithGooglePopup();
     const userDocRef = await createUserDocumentFromAuth(user);
   };
+
   return (
     <Fragment>
       <div className="sign-in">
@@ -18,8 +19,9 @@ const SignIn = () => {
         <input type="email" placeholder="Enter your Email" />
         <label>Password</label>
         <input type="password" placeholder="Password" />
-        <button onClick={logGoogleUser}>SignIn With Google </button>
+        <button onClick={logGoogleUser}>SignIn With Google Popup </button>
       </div>
+      <SignUpForm />
     </Fragment>
   );
 };
